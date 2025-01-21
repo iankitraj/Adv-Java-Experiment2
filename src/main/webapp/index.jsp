@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,9 +60,9 @@
         }
 
         button {
-            width: 48%;
-            margin-top: 10px;
+            width: 100px;
             padding: 10px;
+            margin: 5px;
             border: none;
             border-radius: 5px;
             font-size: 1rem;
@@ -79,7 +81,7 @@
         }
 
         .btn-outline-primary:hover {
-            background-color: #0056b3;
+            background: linear-gradient(45deg, #0056b3, #007bff);
         }
 
         .btn-outline-danger {
@@ -88,7 +90,7 @@
         }
 
         .btn-outline-danger:hover {
-            background-color: #a71d2a;
+            background: linear-gradient(45deg, #a71d2a, #dc3545);
         }
 
         .btn-link {
@@ -106,6 +108,12 @@
             background-color: #1e7a38;
         }
 
+        .button-group {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
         @media (max-width: 768px) {
             h2.card-header {
                 font-size: 1.2rem;
@@ -115,9 +123,9 @@
                 font-size: 0.9rem;
             }
 
-            button {
-                width: 100%;
-                margin: 5px 0;
+            .button-group {
+                flex-direction: column;
+                align-items: center;
             }
         }
     </style>
@@ -129,7 +137,7 @@
         <table class="table table-hover">
             <tr>
                 <td><label for="userName">Name</label></td>
-                <td><input type="text" id="userName" name="userName" placeholder="Enter your name"></td>
+                <td><input type="text" id="userName" name="userName" placeholder="Enter your name" required></td>
             </tr>
             <tr>
                 <td><label for="email">Email</label></td>
@@ -159,22 +167,18 @@
             <tr>
                 <td><label>Gender</label></td>
                 <td>
-                    <input type="radio" id="male" name="gender" value="male">
+                    <input type="radio" id="male" name="gender" value="male" required>
                     <label for="male">Male</label>
 
-                    <input type="radio" id="female" name="gender" value="female">
+                    <input type="radio" id="female" name="gender" value="female" required>
                     <label for="female">Female</label>
                 </td>
             </tr>
-            <tr class="card-footer">
-                <td>
-                    <button type="submit" class="btn btn-outline-primary">Register</button>
-                </td>
-                <td>
-                    <button type="reset" class="btn btn-outline-danger">Cancel</button>
-                </td>
-            </tr>
         </table>
+        <div class="button-group">
+            <button type="submit" class="btn btn-outline-primary">Register</button>
+            <button type="reset" class="btn btn-outline-danger">Cancel</button>
+        </div>
         <a href="ShowUserServlet" class="btn-link">Show Users</a>
     </form>
 </body>
